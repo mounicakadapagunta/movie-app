@@ -84,15 +84,16 @@ export default function App() {
 function Msg({ name, pic, rating, summary, director }) {
 
   return (
-
+<div className="body">
     <div className="container">
       <img className="movie-poster" src={pic} alt={name} />
-
-      <h3 className="movie-name">{name}</h3>
+</div>
+      <div className="mini-container">
+        <h3 className="movie-name">{name}</h3>
       <h3 className="movie-rating"><b>Rating:</b> <span class="fa fa-star checked"></span> {rating}/10</h3>
       <h3 className="movie-director"><b>Director:</b>{director}</h3>
       <p className="movie-summary"><b>Summary:</b> {summary}</p>
-
+    </div>
     </div>
 
 

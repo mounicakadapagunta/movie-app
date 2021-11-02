@@ -1,56 +1,47 @@
  *{
-   margin: 10px;
+   margin: 5px;
  }
-.container{
 
-  
-  background-image: linear-gradient(to right top, #5f5fb7, #005997, #004a6c, #023742, #1a2323);
-  
-border-radius: 10px ;
-}
-.container:hover{
-  background-image: linear-gradient(to right top, #0f0f0f, #19191a, #232224, #2c2c2e, #363639);
-}
   .movie-poster{
   object-fit:cover;
   height: 300px;
   width: 200px;
-  border: 2px solid burlywood;
+  border: 3px solid burlywood;
   border-radius: 5px;
+}
+.mini-container{
+  color: #ecb210;
 }
 
 .heading{
-
-  margin-left: 60px;
   color: #e2740d;
-  font-family: 'Grechen Fuemen', cursive;
   font-size: 70px;
 }
-.movie-name,.movie-rating,.movie-summary,.movie-director{
-  color: white;
-  font-family: 'Carattere', cursive;
+.movie-name,
+.movie-rating,
+.movie-summary,
+.movie-director{
+  font-family: 'Poppins';
   letter-spacing: 1px;
   font-weight:2px;
-  font-size: 30px;
+  align-items: center;
+  color: black;
+
 }
 .movie-rating{
   color: #ecb210;
   letter-spacing: 3px;
   
+  
 }
-.movie-name{
-  color:whitesmoke;
-  letter-spacing: 4px;
+.body{
+
+  display: flex;
+  flex-direction: row;
+ background-image: url("https://live.staticflickr.com/5104/5629932264_94174f2184_b.jpg");
+ align-items: center;
 }
-.movie-summary{
-  text-align: left;
-  color: #89aaf1;
-  letter-spacing: 3px;
-}
-.movie-director{
-  color: rgb(247, 159, 207);
-  letter-spacing: 3px;
-}
+
 span{
   color: gold; 
 }
@@ -58,5 +49,5 @@ span:hover{
   transform:scale(1.4) ;
 }
 b{
-  color: rgb(151, 218, 190);
+  color: rgb(55, 9, 129);
 }
