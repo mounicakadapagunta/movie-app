@@ -5,7 +5,7 @@ export default function App() {
   const movies = [
     {
       name: "1. Nenokkadine",
-      pic: "https://lh3.googleusercontent.com/proxy/PqcuAA7-yFrlC5AqjctK6Rihgunnkrl4xnP9xXII7En-N3puX1HRz2FxgES_Xgt5Sjgmpyxc1tN5z83XO4p8ZImKwLaWJ0dEU4gmhxHJDvZ6LnQIy_itr4VjmTI70e5juOJeImj2tSu1n4crqQV1paZwLv_pejJoopvXlkbsY10Xw3qqLIE",
+      pic: "https://i.pinimg.com/736x/fe/f2/b5/fef2b5d2edad7c05b9ca2d98a97a2868--mahesh-babu-movie.jpg",
       rating: 8.2,
       summary: "A rock star must overcome his psychological inhibitions to seek revenge for his parents' death.",
       director: "Sukumar"
