@@ -55,7 +55,7 @@ span{
   color: gold; 
 }
 span:hover{
-  transform:scale(1.5) ;
+  transform:scale(1.4) ;
 }
 b{
   color: rgb(151, 218, 190);
