@@ -1,13 +1,62 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+ *{
+   margin: 10px;
+ }
+.container{
+
+  
+  background-image: linear-gradient(to right top, #5f5fb7, #005997, #004a6c, #023742, #1a2323);
+  
+border-radius: 10px ;
+}
+.container:hover{
+  background-image: linear-gradient(to right top, #0f0f0f, #19191a, #232224, #2c2c2e, #363639);
+}
+  .movie-poster{
+  object-fit:cover;
+  height: 300px;
+  width: 200px;
+  border: 2px solid burlywood;
+  border-radius: 5px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.heading{
+
+  margin-left: 60px;
+  color: #e2740d;
+  font-family: 'Grechen Fuemen', cursive;
+  font-size: 70px;
+}
+.movie-name,.movie-rating,.movie-summary,.movie-director{
+  color: white;
+  font-family: 'Carattere', cursive;
+  letter-spacing: 1px;
+  font-weight:2px;
+  font-size: 30px;
+}
+.movie-rating{
+  color: #ecb210;
+  letter-spacing: 3px;
+  
+}
+.movie-name{
+  color:whitesmoke;
+  letter-spacing: 4px;
+}
+.movie-summary{
+  text-align: left;
+  color: #89aaf1;
+  letter-spacing: 3px;
+}
+.movie-director{
+  color: rgb(247, 159, 207);
+  letter-spacing: 3px;
+}
+span{
+  color: gold; 
+}
+span:hover{
+  transform:scale(1.5) ;
+}
+b{
+  color: rgb(151, 218, 190);
 }
