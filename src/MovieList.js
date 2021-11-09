@@ -3,13 +3,13 @@ import{Counter} from "./Counter"
 export function MovieList({ movies }) {
   return (
     <section className="movie-list">
-      {movies.map(({ name, rating, summary, poster }) => (
-        <Movie name={name} ratting={rating} summary={summary} poster={poster} />
+      {movies.map(({ name, rating, summary, poster,director }) => (
+        <Movie name={name} rating={rating} summary={summary} poster={poster} director={director} />
       ))}
     </section>
   );
 }
-function Movie({ name, rating, summary, poster }) {
+function Movie({ name, rating, summary, poster,director }) {
   const [show, setShow] = useState(true);
   //conditional styling
   const styles = {
@@ -25,13 +25,16 @@ function Movie({ name, rating, summary, poster }) {
       <img src={poster} alt={name} className="movie-poster" />
       <div className="movie-specs">
         <h3 className="movie-name">{name}</h3>
-        <p className="movie-rating" style={styles}>⭐{rating}</p>
+        <p className="movie-rating" style={styles}>⭐ {rating}/10</p>
       </div>
       <button onClick={() => setShow(!show)} className="movie-show-button">
         {show ? "Hide" : "Show"} Description
       </button>
       {/* conditional rendering */}
       {show ? <p className="movie-summary">{summary}</p> : " "}
+  
+      <h3 className="movie-director"> Director: {director}</h3>
+      
       <Counter />
     </div>
   );
