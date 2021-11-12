@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Counter } from "./Counter";
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import { IconButton } from "@mui/material";
 
 export function Movie({ name, rating, summary, poster, director }) {
   const [show, setShow] = useState(true);
@@ -19,6 +21,9 @@ export function Movie({ name, rating, summary, poster, director }) {
         <h3 className="movie-name">{name}</h3>
         <p className="movie-rating" style={styles}>⭐ {rating}/10</p>
       </div>
+      <IconButton areal-label="description">
+        <ExpandLessIcon/>
+      </IconButton>
       <button onClick={() => setShow(!show)} className="movie-show-button">
         {show ? "Hide" : "Show"} Description
       </button>

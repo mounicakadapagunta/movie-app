@@ -58,7 +58,12 @@
   margin-bottom: 10px;
   font-size: 18px;
 }
-
+.add-color-form{
+  display: flex;
+  gap:10px;
+  flex-direction: column;
+  width: 250px;
+}
 
 
 

@@ -1,14 +1,11 @@
 import { useState } from "react";
 import { MovieList } from "./MovieList";
 
-import * as React from 'react';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
 
 //component definition
 export default function App() {
-  //const names =["ajith", "kewal","Ryed","Deepa","Robin"]
-  const movies = [
+
+  const INITIAL_MOVIES = [
     {
       name: "1. Athadu",
       poster: "https://www.filmibeat.com/ph-big/2011/09/1317193759547588.jpg",
@@ -73,49 +70,43 @@ export default function App() {
       director: "Puri Jagannadh",
     },
   ];
+  const [name, setName] = useState(" ")
+  const [poster, setPoster] = useState(" ")
+  const [rating, setRating] = useState(" ")
+  const [summary, setSummary] = useState(" ")
+  const [director, setDirector] = useState(" ")
+  const [movies, setMovies] = useState(INITIAL_MOVIES)
+  const addMovie = () => {
+    const newMovie = {
+      name ,
+      poster ,
+      rating ,
+      summary ,
+      director
+     } // shorhand for object
+//copy movie list and then add the new movie
+setMovies([...movies,newMovie])
+  };
   return (
     <div className="App">
+      <div>
+        <input 
+        value={name}  
+        onChange ={ (event) => setName (event.target.value)} 
+        placeholder="Enter Movie Name" 
+        />
+        <input value={poster} onChange={(event) => setPoster(event.target.value)} placeholder="Enter Movie Poster" />
+        <input value={rating} onChange={(event) => setRating(event.target.value)} placeholder="Enter Movie Rating" />
+        <input value={summary} onChange={(event) => setSummary(event.target.value)} placeholder="Enter Movie Summary" />
+        <input value={director} onChange={(event) => setDirector(event.target.value)} placeholder="Enter Movie  Director" />
+        
+        <button onClick ={addMovie}> Add Movie</button>
+       
+
+      </div>
       <MovieList movies={movies} />
+
     </div>
   );
 }
-function AddColor() {
-  const [color, setColor] = useState("red");
-  const styles = { backgroundColor: color };
-
-  const [colors, setColors] = useState(["teal", "orange", "lavender"]);
-  return (
-    <div>
-      <input
-        value={color}
-        onChange={(event) =>
-          setColor(event.target.value)
-        }
-        style={styles}
-        placeholder="enter a color"
-      />
-      {/* copy color list and then add the new color */}
-      <Button variant="outlined" onClick={() =>
-        setColors([...colors, color])
-      }> {" "}
-        Add Color</Button>
-      {colors.map((clr, index) => (
-        <ColorBox key={index} color={clr} />
-      ))}
-    </div>
-  );
-}
-function ColorBox({ color }) {
-  const styles = {
-    backgroundColor: color,
-    height: "25px",
-    width: "250px",
-    marginTop: "10px",
-  };
-  return <div style={styles}></div>;
-}
-
-
-
-
 
