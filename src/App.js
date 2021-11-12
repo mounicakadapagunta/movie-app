@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { MovieList } from "./MovieList";
 
-
+import * as React from 'react';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 //component definition
 export default function App() {
@@ -93,14 +95,10 @@ function AddColor() {
         placeholder="enter a color"
       />
       {/* copy color list and then add the new color */}
-      <button
-        onClick={() =>
-          setColors([...colors, color])
-        }
-      >
-        {" "}
-        Add Color
-      </button>
+      <Button variant="outlined" onClick={() =>
+        setColors([...colors, color])
+      }> {" "}
+        Add Color</Button>
       {colors.map((clr, index) => (
         <ColorBox key={index} color={clr} />
       ))}
