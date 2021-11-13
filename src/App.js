@@ -1,7 +1,11 @@
-import { TextField } from "@mui/material";
 import { useState } from "react";
 import { MovieList } from "./MovieList";
-import { Button} from "@mui/material";
+import { Switch, Route, Link } from "react-router-dom";
+import { AddColor } from "./AddColor";
+import { TextField } from "@mui/material";
+import { Button } from "@mui/material";
+
+
 
 
 //component definition
@@ -75,33 +79,63 @@ export default function App() {
   const [movies, setMovies] = useState(INITIAL_MOVIES)
   return (
     <div className="App">
-      <AddMovie movies={movies}  setMovies={setMovies}/>
-      <MovieList movies={movies} />
-      </div>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/movies">Movies</Link>
+        <Link to="/add-movies ">Add Movies</Link>
+        <Link to="/color-game">Color Game</Link>
+      </nav>
+
+      <Switch>
+        <Route path="/movies">
+          <MovieList movies={movies} />
+        </Route>
+        <Route path="/add-movies">
+          <AddMovie movies={movies} setMovies={setMovies} />
+        </Route>
+        <Route path="/color-game">
+          <AddColor />
+        </Route>
+        <Route path="/">
+          <Welcome /></Route>
+        <Route path="**"  >Not found 404
+        </Route>
+      </Switch>
+    </div>
+  );
+}
+
+export function Welcome() {
+  return (
+    <div>
+      <h1>Welcome to hit movie list of SUPER STAR MAHESH BABU</h1>
+      <p>Ghattamaneni Mahesh Babu (born 9 August 1975) is an Indian actor, producer, media personality, and philanthropist who works mainly in Telugu cinema. He has appeared in more than 25 films, and won several accolades including, eight Nandi Awards, five Filmfare South Awards, four South Indian International Movie Awards, three CineMAA Awards, and one IIFA Utsavam Award.[3][4] He also owns the production house G. Mahesh Babu Entertainment.</p>
+    </div>
   );
 }
 //when two components need the same data->
 // put the data in the common parent component<App/>
 //this pattern is called HOC- higher order coomponent
-function AddMovie({movies, setMovies} ){
-  const [name, setName] = useState(" ")
-  const [poster, setPoster] = useState(" ")
-  const [rating, setRating] = useState(" ")
-  const [summary, setSummary] = useState(" ")
-  const [director, setDirector] = useState(" ")
+export function AddMovie({ movies, setMovies }) {
+  const [name, setName] = useState(" ");
+  const [poster, setPoster] = useState(" ");
+  const [rating, setRating] = useState(" ");
+  const [summary, setSummary] = useState(" ");
+  const [director, setDirector] = useState(" ");
 
-  const addMovie = ( ) => {
+  const addMovie = () => {
     const newMovie = {
       name,
       poster,
       rating,
       summary,
       director
-    } // shorhand for object
+    }; // shorhand for object
+
     //copy movie list and then add the new movie
-    setMovies([...movies, newMovie])
+    setMovies([...movies, newMovie]);
   };
-  return(
+  return (
     <div className="add-movie-form">
       <TextField value={name} onChange={(event) => setName(event.target.value)} label="Movie Name" variant="outlined" />
       <TextField value={poster} onChange={(event) => setPoster(event.target.value)} label="Movie Poster Url" variant="outlined" />
@@ -110,8 +144,6 @@ function AddMovie({movies, setMovies} ){
       <TextField value={director} onChange={(event) => setDirector(event.target.value)} label="Movie  Director" variant="outlined" />
       <Button onClick={addMovie} variant="contained"> Add Movie</Button>
     </div>
-  )
-   
-}
+  );
 
- 
+}
