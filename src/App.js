@@ -98,8 +98,7 @@ export default function App() {
         </Route>
         <Route path="/">
           <Welcome /></Route>
-        <Route path="**"  >Not found 404
-        </Route>
+        <Route path="**">Not found 404</Route>
       </Switch>
     </div>
   );
