@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MovieList } from "./MovieList";
-import { Switch, Route, Link, Redirect } from "react-router-dom";
+import { Switch, Route, Link, Redirect, useParams } from "react-router-dom";
 import { AddColor } from "./AddColor";
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
@@ -99,7 +99,9 @@ export default function App() {
           <Redirect to="/movies" />
         </Route>
 
-        <Route path="/movies/:id"> Movie Details</Route>
+        <Route path="/movies/:id">
+          <MovieDetails />
+        </Route>
 
         <Route path="/movies">
           <MovieList movies={movies} />
@@ -116,6 +118,10 @@ export default function App() {
       </Switch>
     </div>
   );
+}
+function MovieDetails() {
+  const { id } = useParams();
+  return <h1>Movie Details{id}</h1>
 }
 function NotFound() {
   return (
