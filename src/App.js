@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { MovieList } from "./MovieList";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link, Redirect } from "react-router-dom";
 import { AddColor } from "./AddColor";
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
+
 
 
 
@@ -79,14 +80,27 @@ export default function App() {
   const [movies, setMovies] = useState(INITIAL_MOVIES)
   return (
     <div className="App">
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/movies">Movies</Link>
-        <Link to="/add-movies ">Add Movies</Link>
-        <Link to="/color-game">Color Game</Link>
+      <nav >
+        <Link to="/"> Home</Link>
+        <Link to="/movies"> Movies</Link>
+        <Link to="/add-movies "> Add Movies</Link>
+        <Link to="/color-game"> Color Game</Link>
       </nav>
 
       <Switch>
+        {/* route maches by substring */}
+        <Route exact path="/">
+          <Welcome />
+        </Route>
+        {/* old route is films and the new 
+        one is movies to redirecting the page  */}
+        {/* <Route path="/movies"> */}
+        <Route path="/films">
+          <Redirect to="/movies" />
+        </Route>
+
+        <Route path="/movies/:id"> Movie Details</Route>
+
         <Route path="/movies">
           <MovieList movies={movies} />
         </Route>
@@ -96,12 +110,23 @@ export default function App() {
         <Route path="/color-game">
           <AddColor />
         </Route>
-        <Route path="/">
-          <Welcome /></Route>
-        <Route path="**">Not found 404</Route>
+        <Route path="**">
+          <NotFound />
+        </Route>
       </Switch>
     </div>
   );
+}
+function NotFound() {
+  return (
+    <div className="not-found-container">
+      <h2>Not Found 404</h2>
+      <img className="not-found-image"
+        src="https://img.freepik.com/free-vector/error-404-page-found-banner-with-broken-cable-website-template_249405-177.jpg?size=626&ext=jpg"
+        alt="404 error page NotFound"
+      />
+    </div>
+  )
 }
 
 export function Welcome() {
