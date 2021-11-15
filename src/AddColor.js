@@ -3,8 +3,8 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { ColorBox } from "./ColorBox";
 
- export function AddColor() {
-  const [color, setColor] = useState("red");
+export function AddColor() {
+  const [color, setColor] = useState(" ");
   const styles = { backgroundColor: color };
 
   const [colors, setColors] = useState(["teal", "orange", "lavender"]);

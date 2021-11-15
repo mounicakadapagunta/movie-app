@@ -1,3 +1,6 @@
+*{
+  background-color: transparent;
+}
 .user-name{
   font-family: "Poppins" , sans-serif;
 }
@@ -36,6 +39,7 @@
 
  .movie-summary{
    margin-top: 0px;
+
  }
 
  .body{
@@ -64,7 +68,7 @@
   display: flex;
   gap:10px;
   flex-direction: column;
-  width: 250px;
+  width: 50%;
 }
 .add-movie-form{
  margin: 20px;
@@ -77,8 +81,9 @@
 }
 
 nav{
-  font-size: 24px;
+  font-size: 25px;
   display: flex;
+  justify-content: space-around;
   gap: 24px;
   margin: 20px;
 }
@@ -90,6 +95,16 @@ nav{
 .not-found-container{
   text-align: center;
   color:teal;
+}
+.movie-detail-container{
+  padding:24px;
+  max-width: 50rem;
+}
+.navbar{
+background-color: rgb(159, 189, 245);
+height: 50px;
+align-items: center;
+padding-left: 20px;
 }
 
 

@@ -19,6 +19,7 @@ export default function App() {
       rating: 8.2,
       summary: "A gunman for hire is framed for murder, and assumes a dead man's identity while hiding from the police.",
       director: "Trivikram Srinivas",
+      trailer: "https://www.youtube.com/embed/Y8LrS2i3EkU",
     },
 
     {
@@ -27,6 +28,7 @@ export default function App() {
       rating: 8.0,
       summary: "A Kabbadi player rescues a young woman from an unwanted marriage and hides her in his home.",
       director: "Gunasekhar",
+      trailer: "https://www.youtube.com/embed/OlKmTiZ1Nmc",
     },
 
     {
@@ -35,6 +37,7 @@ export default function App() {
       rating: 7.9,
       summary: "A local goon's killer instincts earn him his girlfriend's disapproval, a corrupt cop's enmity and a wanted don's attention.",
       director: "Puri Jagannadh",
+      trailer: "",
     },
 
     {
@@ -43,6 +46,7 @@ export default function App() {
       rating: 7.6,
       summary: "Harsha, a multi-millionaire who has everything, still feels that there is something missing in his life. In an attempt to fill the void, he adopts a village to bring change in the people.",
       director: "Koratala Siva",
+      trailer: "",
     },
 
     {
@@ -51,6 +55,7 @@ export default function App() {
       rating: 7.6,
       summary: "When a mysterious illness ravages a remote village, the villagers embrace a reluctant taxi driver as their savior.",
       director: "Trivikram Srinivas",
+      trailer: "",
     },
 
     {
@@ -59,6 +64,7 @@ export default function App() {
       rating: 7.4,
       summary: "Ajay, (Mahesh Babu) an undercover cop, is assigned to catch a dangerous mafia don with whom he has a personal score to settle.",
       director: "Sreenu Vaitla",
+      trailer: "",
     },
 
     {
@@ -67,6 +73,7 @@ export default function App() {
       rating: 6.6,
       summary: "An intelligence officer attempts to save the city from a psychotic serial killer who kills people just to hear their loved ones cry.",
       director: "A.R. Murugadoss",
+      trailer: "",
     },
 
     {
@@ -75,17 +82,19 @@ export default function App() {
       rating: 7.2,
       summary: "Surya arrives in Mumbai to revive the mafia and ends up making enemies who threaten his life.",
       director: "Puri Jagannadh",
+      trailer: "",
     },
   ];
   const [movies, setMovies] = useState(INITIAL_MOVIES)
   return (
     <div className="App">
-      <nav >
-        <Link to="/"> Home</Link>
-        <Link to="/movies"> Movies</Link>
-        <Link to="/add-movies "> Add Movies</Link>
-        <Link to="/color-game"> Color Game</Link>
+      <nav className="navbar">
+        <Link style={{ textDecoration: 'none' }} to="/"> 🏠 Home</Link>
+        <Link style={{ textDecoration: 'none' }} to="/movies"> 🎬 Movies</Link>
+        <Link style={{ textDecoration: 'none' }} to="/add-movies"> ➕ Add Movies</Link>
+        <Link style={{ textDecoration: 'none' }} to="/color-game"> 🎨 Color Game</Link>
       </nav>
+
 
       <Switch>
         {/* route maches by substring */}
@@ -100,7 +109,7 @@ export default function App() {
         </Route>
 
         <Route path="/movies/:id">
-          <MovieDetails />
+          <MovieDetails movies={movies} />
         </Route>
 
         <Route path="/movies">
@@ -119,12 +128,45 @@ export default function App() {
     </div>
   );
 }
-function MovieDetails() {
+function MovieDetails({ movies }) {
   const { id } = useParams();
-  return <h1>Movie Details{id}</h1>
+  const movie = movies[id];
+  // console.log(movie);
+  const styles = {
+    color: movie.rating < 8 ? "crimson" : "green",
+    fontWeight: "bold",
+  };
+
+  return (
+    <div>
+
+      <iframe
+        width="100%"
+        height="600"
+        src={movie.trailer}
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+      <div className="movie-detail-container">
+        <div className="movie-specs">
+          <h3 className="movie-name">Movie Name:{movie.name}</h3>
+          <p className="movie-rating" style={styles}> Rating:
+            ⭐ {movie.rating}/10
+          </p>
+        </div>
+        <p className="movie-summary">Summary:{movie.summary}</p>
+        <h3 className="movie-director"> Director: {movie.director}</h3>
+
+      </div>
+    </div>
+  );
 }
+
 function NotFound() {
   return (
+
     <div className="not-found-container">
       <h2>Not Found 404</h2>
       <img className="not-found-image"
