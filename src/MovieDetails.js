@@ -1,6 +1,10 @@
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import Button from '@mui/material/Button';
 import { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export function MovieDetails({ movies }) {
+    const history = useHistory();
     const { id } = useParams();
     const movie = movies[id];
     // console.log(movie);
@@ -30,7 +34,12 @@ export function MovieDetails({ movies }) {
                 </div>
                 <p className="movie-summary">Summary:{movie.summary}</p>
                 <h3 className="movie-director"> Director: {movie.director}</h3>
-
+                <Button
+                    onClick={() => history.goBack()}
+                    variant="contained"
+                    startIcon={<KeyboardBackspaceIcon />}>
+                    Back
+                </Button>
             </div>
         </div>
     );

@@ -7,7 +7,14 @@ import Card from '@mui/material/Card';
 import InfoIcon from '@mui/icons-material/Info';
 import { useHistory } from "react-router-dom";
 
-export function Movie({ name, rating, summary, poster, director, id, editButton, deleteButton }) {
+export function Movie({ name,
+  rating,
+  summary,
+  poster,
+  director,
+  id,
+  editButton,
+  deleteButton }) {
   const [show, setShow] = useState(true);
   const history = useHistory();
   //conditional styling

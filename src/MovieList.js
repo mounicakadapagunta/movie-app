@@ -8,7 +8,12 @@ export function MovieList({ movies, setMovies }) {
   const history = useHistory();
   return (
     <section className="movie-list">
-      {movies.map(({ name, rating, summary, poster, director }, index) => (
+      {movies.map(({ name,
+        rating,
+        summary,
+        poster,
+        director },
+        index) => (
         <Movie name={name}
           rating={rating}
           summary={summary}
@@ -30,7 +35,9 @@ export function MovieList({ movies, setMovies }) {
             </IconButton>
           }
           editButton={
-            < IconButton onClick={() => history.push("movies/edit/" + index)}
+            < IconButton
+              style={{ marginLeft: "auto" }}
+              onClick={() => history.push("movies/edit/" + index)}
               className="movie-show-button"
               color="secondary"
               aria-label="more-info">
