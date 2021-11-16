@@ -1,17 +1,6 @@
 *{
   background-color: transparent;
 }
-.user-name{
-  font-family: "Poppins" , sans-serif;
-}
-
-.user-pic{
-  height: 200px;
-  width: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
 .movie-container{
   width: 340px;
   height: min-content;
@@ -95,7 +84,7 @@ nav{
 .not-found-container{
   text-align: center;
   color:teal;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
 }
 .movie-detail-container{
   padding:24px;
@@ -103,7 +92,7 @@ nav{
 }
 .navbar{
 background-color: rgb(159, 189, 245);
-height: 50px;
+height: 100px;
 align-items: center;
 padding-left: 20px;
 }
