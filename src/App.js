@@ -37,7 +37,7 @@ export default function App() {
       rating: 7.9,
       summary: "A local goon's killer instincts earn him his girlfriend's disapproval, a corrupt cop's enmity and a wanted don's attention.",
       director: "Puri Jagannadh",
-      trailer: "",
+      trailer: "https://www.youtube.com/embed/nWgHIe6Sy_o",
     },
 
     {
@@ -46,7 +46,7 @@ export default function App() {
       rating: 7.6,
       summary: "Harsha, a multi-millionaire who has everything, still feels that there is something missing in his life. In an attempt to fill the void, he adopts a village to bring change in the people.",
       director: "Koratala Siva",
-      trailer: "",
+      trailer: "https://www.youtube.com/embed/dlvgG-hZ9xc",
     },
 
     {
@@ -55,7 +55,7 @@ export default function App() {
       rating: 7.6,
       summary: "When a mysterious illness ravages a remote village, the villagers embrace a reluctant taxi driver as their savior.",
       director: "Trivikram Srinivas",
-      trailer: "",
+      trailer: "https://www.youtube.com/embed/YraH4F8SdU0",
     },
 
     {
@@ -64,7 +64,7 @@ export default function App() {
       rating: 7.4,
       summary: "Ajay, (Mahesh Babu) an undercover cop, is assigned to catch a dangerous mafia don with whom he has a personal score to settle.",
       director: "Sreenu Vaitla",
-      trailer: "",
+      trailer: "https://www.youtube.com/embed/R15hfyOQ_GE",
     },
 
     {
@@ -73,7 +73,7 @@ export default function App() {
       rating: 6.6,
       summary: "An intelligence officer attempts to save the city from a psychotic serial killer who kills people just to hear their loved ones cry.",
       director: "A.R. Murugadoss",
-      trailer: "",
+      trailer: "https://www.youtube.com/embed/og1zP3u0b4k",
     },
 
     {
@@ -82,7 +82,7 @@ export default function App() {
       rating: 7.2,
       summary: "Surya arrives in Mumbai to revive the mafia and ends up making enemies who threaten his life.",
       director: "Puri Jagannadh",
-      trailer: "",
+      trailer: "https://www.youtube.com/embed/xo_ZUn99wQ4",
     },
   ];
   const [movies, setMovies] = useState(INITIAL_MOVIES)
@@ -180,9 +180,15 @@ function NotFound() {
 export function Welcome() {
   return (
     <div>
-      <h1>Welcome to hit movie list of SUPER STAR MAHESH BABU</h1>
-      <p>Ghattamaneni Mahesh Babu (born 9 August 1975) is an Indian actor, producer, media personality, and philanthropist who works mainly in Telugu cinema. He has appeared in more than 25 films, and won several accolades including, eight Nandi Awards, five Filmfare South Awards, four South Indian International Movie Awards, three CineMAA Awards, and one IIFA Utsavam Award.[3][4] He also owns the production house G. Mahesh Babu Entertainment.</p>
-    </div>
+      <h1>SUPER STAR MAHESH BABU</h1>
+      <p className="intro">Ghattamaneni Mahesh Babu (born 9 August 1975) is an Indian actor, producer, media personality, and philanthropist who works mainly in Telugu cinema.<br></br> He has appeared in more than 25 films, and won several accolades including
+        <br></br> 🏆Eight Nandi Awards
+        <br></br> 🏆Five Filmfare South Awards
+        <br></br> 🏆Four South Indian International Movie Awards
+        <br></br> 🏆Three CineMAA Awards
+        <br></br> 🏆One IIFA Utsavam Award.
+        <br></br> He also owns the production house 🎬 <mark>G.Mahesh Babu Entertainment.</mark></p>
+    </div >
   );
 }
 //when two components need the same data->

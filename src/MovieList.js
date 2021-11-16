@@ -27,17 +27,17 @@ export function MovieList({ movies, setMovies }) {
             </IconButton>
           }
           editButton={
-            <IconButton
+            < IconButton
               onClick={() => { }}
               className="movie-show-button"
               color="secondary"
               aria-label="more-info">
               <EditIcon />
-            </IconButton>
+            </IconButton >
           }
         />
       ))}
-    </section>
+    </section >
   );
 }
 

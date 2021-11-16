@@ -95,6 +95,7 @@ nav{
 .not-found-container{
   text-align: center;
   color:teal;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .movie-detail-container{
   padding:24px;
@@ -107,6 +108,10 @@ align-items: center;
 padding-left: 20px;
 }
 
+.intro{
+  font-weight: bold;
+  font-size: 20px;
+}
 
 
 
