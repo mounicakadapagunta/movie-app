@@ -114,7 +114,7 @@ export default function App() {
         </Route>
 
         <Route path="/movies">
-          <MovieList movies={movies} />
+          <MovieList movies={movies} setMovies={setMovies} />
         </Route>
         <Route path="/add-movies">
           <AddMovie movies={movies} setMovies={setMovies} />
