@@ -91,7 +91,7 @@ export default function App() {
         <Link style={{ textDecoration: 'none' }} to="/"> 🏠 Home</Link>
         <Link style={{ textDecoration: 'none' }} to="/movies"> 🎬 Movies</Link>
         <Link style={{ textDecoration: 'none' }} to="/add-movies"> ➕ Add Movies</Link>
-        <Link style={{ textDecoration: 'none' }} to="/color-game"> 🎨 Color Game</Link>
+        <Link style={{ textDecoration: 'none' }} to="/color-game"> 🎨 Color Game </Link>
       </nav>
 
 
