@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { MovieList } from "./MovieList";
 import { Switch, Route, Link, Redirect } from "react-router-dom";
-import { AddColor } from "./AddColor";
+// import { AddColor } from "./AddColor";
 import { MovieDetails } from "./MovieDetails";
 import { Welcome } from "./Welcome";
 import { NotFound } from "./NotFound";
 import { AddMovie } from "./AddMovie";
 import { EditMovie } from "./EditMovie";
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Button from '@mui/material/Button';
+import { useHistory } from "react-router-dom";
+
 
 //component definition
 export default function App() {
@@ -84,16 +89,28 @@ export default function App() {
       trailer: "https://www.youtube.com/embed/xo_ZUn99wQ4",
     },
   ];
-  const [movies, setMovies] = useState(INITIAL_MOVIES)
+  const [movies, setMovies] = useState(INITIAL_MOVIES);
+  const history = useHistory();
+
   return (
     <div className="App">
-      <nav className="navbar">
-        <Link style={{ textDecoration: 'none' }} to="/"> 🏠 Home</Link>
-        <Link style={{ textDecoration: 'none' }} to="/movies"> 🎬 Movies</Link>
-        <Link style={{ textDecoration: 'none' }} to="/add-movies"> ➕ Add Movies</Link>
-        <Link style={{ textDecoration: 'none' }} to="/color-game"> 🎨 Color Game </Link>
-      </nav>
+      <AppBar position="static" style={{ marginBottom: "20px" }}>
+        <Toolbar variant="dense">
+          <Button variant="text" color="inherit" onClick={() => history.push('/')}>
+            Ghattamaneni Mahesh Babu
+          </Button>
+          <Button variant="text" color="inherit" onClick={() => history.push('/')}>
+            Home
+          </Button >
+          <Button variant="text" color="inherit" onClick={() => history.push('/movies')}>
+            Movies
+          </Button >
+          <Button variant="text" color="inherit" onClick={() => history.push('/add-movies')}>
+            Add Movie
+          </Button >
 
+        </Toolbar >
+      </AppBar >
 
       <Switch>
         {/* route maches by substring */}
@@ -119,14 +136,14 @@ export default function App() {
         <Route path="/add-movies">
           <AddMovie movies={movies} setMovies={setMovies} />
         </Route>
-        <Route path="/color-game">
+        {/* <Route path="/color-game">
           <AddColor />
-        </Route>
+        </Route> */}
         <Route path="**">
           <NotFound />
         </Route>
       </Switch>
-    </div>
+    </div >
   );
 }
 
