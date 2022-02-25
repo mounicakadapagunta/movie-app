@@ -8,7 +8,7 @@
 
 .movie-poster{
   height: 500px;
-  width: 340px;
+  width: 310px;
   object-fit: cover;
 }
 
@@ -67,15 +67,16 @@
   align-items: left; 
   padding-left: 50px;
   padding-right: 50px;
+   
 }
 
-nav{
+/* .nav{
   font-size: 25px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 24px;
   margin: 20px;
-}
+} */
 .not-found-image{
   width: 100%;
   object-fit: cover;

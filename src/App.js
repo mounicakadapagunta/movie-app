@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MovieList } from "./MovieList";
-import { Switch, Route, Link, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 // import { AddColor } from "./AddColor";
 import { MovieDetails } from "./MovieDetails";
 import { Welcome } from "./Welcome";
@@ -11,6 +11,10 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import { useHistory } from "react-router-dom";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+
 
 
 //component definition
@@ -91,59 +95,88 @@ export default function App() {
   ];
   const [movies, setMovies] = useState(INITIAL_MOVIES);
   const history = useHistory();
+  const [mode, setMode] = useState("dark")
+
+
+  //light-dark theme
+  const theme = createTheme({
+    palette: {
+      mode: mode,
+    },
+  });
 
   return (
-    <div className="App">
-      <AppBar position="static" style={{ marginBottom: "20px" }}>
-        <Toolbar variant="dense">
-          <Button variant="text" color="inherit" onClick={() => history.push('/')}>
-            Ghattamaneni Mahesh Babu
-          </Button>
-          <Button variant="text" color="inherit" onClick={() => history.push('/')}>
-            Home
-          </Button >
-          <Button variant="text" color="inherit" onClick={() => history.push('/movies')}>
-            Movies
-          </Button >
-          <Button variant="text" color="inherit" onClick={() => history.push('/add-movies')}>
-            Add Movie
-          </Button >
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <AppBar
+          position="static"
+          style={{
+            marginBottom: "20px",
+            fontSize: "2rem"
+          }}>
+          <Toolbar variant="dense">
+            <Button variant="text"
+              color="inherit"
+              onClick={() => history.push('/')}>
+              Ghattamaneni Mahesh Babu
+            </Button>
+            <Button
+              style={{ marginLeft: "auto" }}
+              variant="text"
+              color="inherit"
+              onClick={() => history.push('/')}>
+              Home
+            </Button >
+            <Button variant="text"
+              color="inherit"
+              onClick={() => history.push('/movies')}>
+              Movies
+            </Button >
+            <Button variant="text"
+              color="inherit"
+              onClick={() => history.push('/add-movies')}>
+              Add Movie
+            </Button >
+            <Button
+              startIcon={theme.palette.mode === 'dark' ? <Brightness4Icon /> : <Brightness7Icon />}
+              variant="text"
+              color="inherit"
+              onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}>
+              {/* {mode === "light" ? "Dark" : "Light"}mode */}
+            </Button >
 
-        </Toolbar >
-      </AppBar >
+          </Toolbar >
+        </AppBar >
 
-      <Switch>
-        {/* route maches by substring */}
-        <Route exact path="/">
-          <Welcome />
-        </Route>
-        {/* old route is films and the new 
+        <Switch>
+          {/* route maches by substring */}
+          <Route exact path="/">
+            <Welcome />
+          </Route>
+          {/* old route is films and the new 
         one is movies to redirecting the page  */}
-        {/* <Route path="/movies"> */}
-        <Route path="/films">
-          <Redirect to="/movies" />
-        </Route>
-        <Route path="/movies/edit/:id">
-          <EditMovie movies={movies} setMovies={setMovies} />
-        </Route>
-        <Route path="/movies/:id">
-          <MovieDetails movies={movies} />
-        </Route>
-
-        <Route path="/movies">
-          <MovieList movies={movies} setMovies={setMovies} />
-        </Route>
-        <Route path="/add-movies">
-          <AddMovie movies={movies} setMovies={setMovies} />
-        </Route>
-        {/* <Route path="/color-game">
-          <AddColor />
-        </Route> */}
-        <Route path="**">
-          <NotFound />
-        </Route>
-      </Switch>
-    </div >
+          {/* <Route path="/movies"> */}
+          <Route path="/films">
+            <Redirect to="/movies" />
+          </Route>
+          <Route path="/movies/edit/:id">
+            <EditMovie movies={movies} setMovies={setMovies} />
+          </Route>
+          <Route path="/movies/:id">
+            <MovieDetails movies={movies} />
+          </Route>
+          <Route path="/movies">
+            <MovieList movies={movies} setMovies={setMovies} />
+          </Route>
+          <Route path="/add-movies">
+            <AddMovie movies={movies} setMovies={setMovies} />
+          </Route>
+          <Route path="**">
+            <NotFound />
+          </Route>
+        </Switch>
+      </div >
+    </ThemeProvider>
   );
 }
 
