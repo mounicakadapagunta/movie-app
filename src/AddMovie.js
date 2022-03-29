@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom"
 //when two components need the same data->
 // put the data in the common parent component<App/>
 //this pattern is called HOC- higher order component
-export function AddMovie({ movies, setMovies }) {
+export function AddMovie() {
     const history = useHistory();
     const [name, setName] = useState(" ");
     const [poster, setPoster] = useState(" ");
@@ -43,9 +43,24 @@ export function AddMovie({ movies, setMovies }) {
 
 
         //copy movie list and then add the new movie
-        setMovies([...movies, newMovie]);
-        history.push("/movies")
+        //setMovies([...movies, newMovie]);\\
+
+        // FOR POST METHOD WE NEED
+        // 1.method should be POST method
+        // 2. Body -data should be in json format
+        // 3.headers - JSON - "content-type": "application/json",
+        
+        fetch(`https://6166c53d13aa1d00170a6764.mockapi.io/movies`,
+            {
+                method: "POST",
+                body: JSON.stringify(newMovie),
+                headers: {
+                    "content-type": "application/json",
+                },
+            }).then(() => history.push("/movies"));
     };
+
+
     return (
         <div className="add-movie-form">
             <TextField value={name}

@@ -14,23 +14,27 @@ export function MovieList() {
       .then((mvs) => setMovies(mvs));
   }
   useEffect(getMovies, []);
-  
+
   const deleteMovie = (id) => {
     fetch(`https://6166c53d13aa1d00170a6764.mockapi.io/movies/${id}`,
       {
         method: "DELETE",
-      });
+      })
+      .then(() => getMovies());
   };
   const history = useHistory();
   return (
     <section className="movie-list">
-      {movies.map(({ name,
+      {movies.map(({
+        name,
         rating,
         summary,
         poster,
         director,
-        id }, index) => (
-        <Movie name={name}
+        id }) => (
+        <Movie
+          key={id}
+          name={name}
           rating={rating}
           summary={summary}
           poster={poster}
