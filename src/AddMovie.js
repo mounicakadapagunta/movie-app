@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+// import { useEffect } from "react";
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
 import { useHistory } from "react-router-dom"
 
 //when two components need the same data->
 // put the data in the common parent component<App/>
-//this pattern is called HOC- higher order coomponent
+//this pattern is called HOC- higher order component
 export function AddMovie({ movies, setMovies }) {
     const history = useHistory();
     const [name, setName] = useState(" ");
@@ -14,22 +15,22 @@ export function AddMovie({ movies, setMovies }) {
     const [summary, setSummary] = useState(" ");
     const [director, setDirector] = useState(" ");
     const [trailer, setTrailer] = useState(" ");
-    
+
     //useEffect takes in a callback function and a dependency array 
     //updates only when props or state changes
     //useEffect calls every time when there is no dependency array is provided
-    useEffect(() => {
-        console.log('Movie is Updated',{
-            name,
-            poster,
-            rating,
-            summary,
-            director,
-            trailer
-        });
-    },[ ]);//dependency array
-    
-    
+    // useEffect(() => {
+    //     console.log('Movie is Updated',{
+    //         name,
+    //         poster,
+    //         rating,
+    //         summary,
+    //         director,
+    //         trailer
+    //     });
+    // },[]);//dependency array
+
+
     const addMovie = () => {
         const newMovie = {
             name,

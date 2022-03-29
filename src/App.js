@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+ import { useEffect, useState } from "react";
 import { MovieList } from "./MovieList";
 import { Switch, Route, Redirect } from "react-router-dom";
 // import { AddColor } from "./AddColor";
@@ -95,13 +95,16 @@ export default function App() {
               <Redirect to="/movies" />
             </Route>
             <Route path="/movies/edit/:id">
-              <EditMovie movies={movies} setMovies={setMovies} />
+              {/* <EditMovie movies={movies} setMovies={setMovies} /> */}
+            <EditMovie/>
             </Route>
             <Route path="/movies/:id">
-              <MovieDetails movies={movies} />
+              {/* <MovieDetails movies={movies} /> */}
+              <MovieDetails/>
             </Route>
             <Route path="/movies">
-              <MovieList movies={movies} setMovies={setMovies} />
+              {/* <MovieList movies={movies} setMovies={setMovies} /> */}
+              <MovieList/>
             </Route>
             <Route path="/add-movies">
               <AddMovie movies={movies} setMovies={setMovies} />
