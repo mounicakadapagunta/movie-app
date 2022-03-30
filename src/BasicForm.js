@@ -1,12 +1,12 @@
 import React from 'react'
 
-export default function () {
+export default function BasicForm() {
     return (
-        <div>
+        <form>
             <input type="email" placeholder="Enter your Email" />
             <input type="password" placeholder="Enter your password" />
             <button>Submit</button>
 
-        </div>
+        </form>
     )
 }

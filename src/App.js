@@ -73,6 +73,11 @@ export default function App() {
                 onClick={() => history.push('/add-movies')}>
                 Add Movie
               </Button >
+              <Button variant="text"
+                color="inherit"
+                onClick={() => history.push('/form')}>
+                Login
+              </Button >
               <Button
                 startIcon={theme.palette.mode === 'dark' ? <Brightness4Icon /> : <Brightness7Icon />}
                 variant="text"
@@ -85,7 +90,7 @@ export default function App() {
           </AppBar >
 
           <Switch>
-            {/* route maches by substring */}
+            {/* route matches by substring */}
             <Route exact path="/">
               <Welcome />
             </Route>
@@ -108,8 +113,8 @@ export default function App() {
               <MovieList />
             </Route>
             <Route path="/add-movies">
-              {/* <AddMovie movies={movies} setMovies={setMovies} /> */}
-              <AddMovie />
+              <AddMovie movies={movies} setMovies={setMovies} />
+              {/* <AddMovie /> */}
             </Route>
             <Route path="/form">
               <BasicForm />
