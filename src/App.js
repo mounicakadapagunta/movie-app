@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Paper from '@mui/material/Paper';
+import BasicForm from "./BasicForm";
 
 
 //component definition
@@ -107,7 +108,11 @@ export default function App() {
               <MovieList />
             </Route>
             <Route path="/add-movies">
-              <AddMovie movies={movies} setMovies={setMovies} />
+              {/* <AddMovie movies={movies} setMovies={setMovies} /> */}
+              <AddMovie />
+            </Route>
+            <Route path="/form">
+              <BasicForm />
             </Route>
             <Route path="**">
               <NotFound />
