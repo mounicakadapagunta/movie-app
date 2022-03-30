@@ -1,12 +1,12 @@
- import { useEffect, useState } from "react";
-import { MovieList } from "./MovieList";
+import { useEffect, useState } from "react";
+import { MovieList } from "./components/MovieList";
 import { Switch, Route, Redirect } from "react-router-dom";
 // import { AddColor } from "./AddColor";
-import { MovieDetails } from "./MovieDetails";
-import { Welcome } from "./Welcome";
-import { NotFound } from "./NotFound";
-import { AddMovie } from "./AddMovie";
-import { EditMovie } from "./EditMovie";
+import { MovieDetails } from "./components/MovieDetails";
+import { Welcome } from "./components/Welcome";
+import { NotFound } from "./components/NotFound";
+import { AddMovie } from "./components/AddMovie";
+import { EditMovie } from "./components/EditMovie";
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
@@ -28,7 +28,7 @@ export default function App() {
     palette: {
       mode: mode,
     },
-  }); 
+  });
 
   //useEffect
   //app is mounted-> useEffect only once -> fetch -> setMovies
@@ -96,15 +96,15 @@ export default function App() {
             </Route>
             <Route path="/movies/edit/:id">
               {/* <EditMovie movies={movies} setMovies={setMovies} /> */}
-            <EditMovie/>
+              <EditMovie />
             </Route>
             <Route path="/movies/:id">
               {/* <MovieDetails movies={movies} /> */}
-              <MovieDetails/>
+              <MovieDetails />
             </Route>
             <Route path="/movies">
               {/* <MovieList movies={movies} setMovies={setMovies} /> */}
-              <MovieList/>
+              <MovieList />
             </Route>
             <Route path="/add-movies">
               <AddMovie movies={movies} setMovies={setMovies} />
