@@ -18,7 +18,7 @@ export function MovieDetails() {
             .then(data => data.json())
             .then((mv) => setMovie(mv));
 
-    })
+    },[id])
     // console.log(movie);
     const styles = {
         color: movie.rating < 8 ? "crimson" : "green",
