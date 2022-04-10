@@ -4,9 +4,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import { IconButton } from "@mui/material";
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react"
-
-const API_URL = "https://movie-backendnode.herokuapp.com"
-// const API_URL = "https://6166c53d13aa1d00170a6764.mockapi.io/movies" 
+import { API_URL } from "../global-constants";
 
 export function MovieList() {
 

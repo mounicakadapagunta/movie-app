@@ -3,6 +3,7 @@ import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
 import { useParams } from "react-router-dom"
 import { useHistory } from "react-router-dom"
+import { API_URL } from "../global-constants";
 
 //when two components need the same data->
 // put the data in the common parent component<App/>
@@ -13,7 +14,7 @@ export function EditMovie() {
     //const movie = movies[id];
     const [movie, setMovie] = useState(null);
     useEffect(() => {
-        fetch(`https://movie-backendnode.herokuapp.com/movies/${id}`,
+        fetch(`${API_URL}/movies/${id}`,
             {
                 method: "GET",
             })
@@ -49,7 +50,7 @@ function UpdateMovie({ movie }) {
         // body:data should be json
         // headers:of json
 
-        fetch(`https://movie-backendnode.herokuapp.com/movies/${movie.id}`,
+        fetch(`${API_URL}/movies/${movie.id}`,
             {
                 method: "PUT",
                 body: JSON.stringify(updatedMovie),

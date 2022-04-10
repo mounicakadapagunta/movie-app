@@ -16,6 +16,7 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Paper from '@mui/material/Paper';
 import BasicForm from "./components/BasicForm";
+import { API_URL } from "./global-constants";
 
 
 //component definition
@@ -34,7 +35,7 @@ export default function App() {
   //useEffect
   //app is mounted-> useEffect only once -> fetch -> setMovies
   useEffect(() => {
-    fetch("https://movie-backendnode.herokuapp.com/movies")
+    fetch(`${API_URL}/movies`)
       .then(data => data.json())
       .then((mvs) => setMovies(mvs));
 

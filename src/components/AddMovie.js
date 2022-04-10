@@ -3,6 +3,7 @@ import { useState } from "react";
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
 import { useHistory } from "react-router-dom"
+import { API_URL } from "../global-constants";
 
 //when two components need the same data->
 // put the data in the common parent component<App/>
@@ -48,7 +49,7 @@ export function AddMovie() {
         // 2. Body -data should be in json format
         // 3.headers - JSON - "content-type": "application/json",
 
-        fetch(`https://movie-backendnode.herokuapp.com/movies`,
+        fetch(`${API_URL}/movies`,
             {
                 method: "POST",
                 body: JSON.stringify(newMovie),
