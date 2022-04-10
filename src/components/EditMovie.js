@@ -49,7 +49,7 @@ function UpdateMovie({ movie }) {
         // body:data should be json
         // headers:of json
 
-        fetch(`https://6166c53d13aa1d00170a6764.mockapi.io/movies/${movie.id}`,
+        fetch(`${API_URL}/movies/${movie.id}`,
             {
                 method: "PUT",
                 body: JSON.stringify(updatedMovie),
