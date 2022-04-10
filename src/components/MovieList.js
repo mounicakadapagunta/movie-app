@@ -5,18 +5,21 @@ import { IconButton } from "@mui/material";
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react"
 
+const API_URL ="https://movie-backendnode.herokuapp.com"
+// const API_URL = "https://6166c53d13aa1d00170a6764.mockapi.io/movies" 
+
 export function MovieList() {
 
   const [movies, setMovies] = useState([]);
   const getMovies = () => {
-    fetch("https://6166c53d13aa1d00170a6764.mockapi.io/movies")
+    fetch(`${API_URL}/movies`)
       .then(data => data.json())
       .then((mvs) => setMovies(mvs));
   }
   useEffect(getMovies, []);
 
   const deleteMovie = (id) => {
-    fetch(`https://6166c53d13aa1d00170a6764.mockapi.io/movies/${id}`,
+    fetch(`${API_URL}/movies/${id}`,
       {
         method: "DELETE",
       })
