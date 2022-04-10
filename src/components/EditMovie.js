@@ -13,7 +13,7 @@ export function EditMovie() {
     //const movie = movies[id];
     const [movie, setMovie] = useState(null);
     useEffect(() => {
-        fetch(`https://movie-backendnode.herokuapp.com/movies/${id}`,
+        fetch(`https://6166c53d13aa1d00170a6764.mockapi.io/movies/${id}`,
             {
                 method: "GET",
             })
