@@ -48,7 +48,7 @@ export function AddMovie() {
         // 2. Body -data should be in json format
         // 3.headers - JSON - "content-type": "application/json",
 
-        fetch(`https://6166c53d13aa1d00170a6764.mockapi.io/movies`,
+        fetch(`https://movie-backendnode.herokuapp.com/movies`,
             {
                 method: "POST",
                 body: JSON.stringify(newMovie),

@@ -34,7 +34,7 @@ export default function App() {
   //useEffect
   //app is mounted-> useEffect only once -> fetch -> setMovies
   useEffect(() => {
-    fetch("https://6166c53d13aa1d00170a6764.mockapi.io/movies")
+    fetch("https://movie-backendnode.herokuapp.com/movies")
       .then(data => data.json())
       .then((mvs) => setMovies(mvs));
 

@@ -13,7 +13,7 @@ export function EditMovie() {
     //const movie = movies[id];
     const [movie, setMovie] = useState(null);
     useEffect(() => {
-        fetch(`https://6166c53d13aa1d00170a6764.mockapi.io/movies/${id}`,
+        fetch(`https://movie-backendnode.herokuapp.com/movies/${id}`,
             {
                 method: "GET",
             })
@@ -49,7 +49,7 @@ function UpdateMovie({ movie }) {
         // body:data should be json
         // headers:of json
 
-        fetch(`https://6166c53d13aa1d00170a6764.mockapi.io/movies/${movie.id}`,
+        fetch(`https://movie-backendnode.herokuapp.com/movies/${movie.id}`,
             {
                 method: "PUT",
                 body: JSON.stringify(updatedMovie),

@@ -5,7 +5,7 @@ import { IconButton } from "@mui/material";
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react"
 
-const API_URL ="https://movie-backendnode.herokuapp.com"
+const API_URL = "https://movie-backendnode.herokuapp.com"
 // const API_URL = "https://6166c53d13aa1d00170a6764.mockapi.io/movies" 
 
 export function MovieList() {
@@ -34,7 +34,8 @@ export function MovieList() {
         summary,
         poster,
         director,
-        id }) => (
+        id,
+        _id }) => (
         <Movie
           key={id}
           name={name}
@@ -42,10 +43,10 @@ export function MovieList() {
           summary={summary}
           poster={poster}
           director={director}
-          id={id}
+          id={_id}
           deleteButton={
             <IconButton
-              onClick={() => deleteMovie(id)}
+              onClick={() => deleteMovie(_id)}
               className="movie-show-button"
               color="error"
               aria-label="delete movie">
@@ -55,7 +56,7 @@ export function MovieList() {
           editButton={
             < IconButton
               style={{ marginLeft: "auto" }}
-              onClick={() => history.push("movies/edit/" + id)}
+              onClick={() => history.push("movies/edit/" + _id)}
               className="movie-show-button"
               color="secondary"
               aria-label="more-info">
