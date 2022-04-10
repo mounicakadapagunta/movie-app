@@ -40,8 +40,6 @@ export function AddMovie() {
             director,
             trailer
         }; // shorthand for object
-
-
         //copy movie list and then add the new movie
         //setMovies([...movies, newMovie]);\\
 
@@ -49,7 +47,7 @@ export function AddMovie() {
         // 1.method should be POST method
         // 2. Body -data should be in json format
         // 3.headers - JSON - "content-type": "application/json",
-        
+
         fetch(`https://6166c53d13aa1d00170a6764.mockapi.io/movies`,
             {
                 method: "POST",
@@ -58,8 +56,7 @@ export function AddMovie() {
                     "content-type": "application/json",
                 },
             }).then(() => history.push("/movies"));
-    };
-
+    }
 
     return (
         <div className="add-movie-form">
@@ -91,4 +88,5 @@ export function AddMovie() {
         </div>
     );
 
-}
+
+};
